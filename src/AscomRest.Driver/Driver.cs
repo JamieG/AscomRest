@@ -294,61 +294,67 @@ namespace ASCOM.AscomRest
             throw new ASCOM.MethodNotImplementedException("AbortSlew");
         }
 
+        private AlignmentModes _alignmentMode = AlignmentModes.algAltAz;
         public AlignmentModes AlignmentMode
         {
             get
             {
                 tl.LogMessage("AlignmentMode Get", "Not implemented");
                 // throw new ASCOM.PropertyNotImplementedException("AlignmentMode", false);
-                return AlignmentModes.algAltAz;
+                return _alignmentMode;
             }
         }
 
+        private double _altitude;
         public double Altitude
         {
             get
             {
                 tl.LogMessage("Altitude", "Not implemented");
                 // throw new ASCOM.PropertyNotImplementedException("Altitude", false);
-                return 0d;
+                return _altitude;
             }
         }
 
+        private double _apertureArea;
         public double ApertureArea
         {
             get
             {
                 tl.LogMessage("ApertureArea Get", "Not implemented");
                 // throw new ASCOM.PropertyNotImplementedException("ApertureArea", false);
-                return 0d;
+                return _apertureArea;
             }
         }
 
+        private double _apertureDiameter;
         public double ApertureDiameter
         {
             get
             {
                 tl.LogMessage("ApertureDiameter Get", "Not implemented");
                 // throw new ASCOM.PropertyNotImplementedException("ApertureDiameter", false);
-                return 0;
+                return _apertureDiameter;
             }
         }
 
+        private bool _atHome;
         public bool AtHome
         {
             get
             {
                 tl.LogMessage("AtHome", "Get - " + false.ToString());
-                return false;
+                return _atHome;
             }
         }
 
+        private bool _atPark;
         public bool AtPark
         {
             get
             {
-                tl.LogMessage("AtPark", "Get - " + false.ToString());
-                return false;
+                tl.LogMessage("AtPark", "Get - " + _atPark.ToString());
+                return _atPark;
             }
         }
 
@@ -358,314 +364,334 @@ namespace ASCOM.AscomRest
             return new AxisRates(Axis);
         }
 
+        private double _azimuth;
         public double Azimuth
         {
             get
             {
                 tl.LogMessage("Azimuth Get", "Not implemented");
                 // throw new ASCOM.PropertyNotImplementedException("Azimuth", false);
-                return 0d;
+                return _azimuth;
             }
         }
 
+        private bool _canFindHome;
         public bool CanFindHome
         {
             get
             {
                 tl.LogMessage("CanFindHome", "Get - " + false.ToString());
-                return false;
+                return _canFindHome;
             }
         }
 
-        public bool CanMoveAxis(TelescopeAxes Axis)
+        public bool CanMoveAxis(TelescopeAxes axis)
         {
-            tl.LogMessage("CanMoveAxis", "Get - " + Axis.ToString());
-            switch (Axis)
+            tl.LogMessage("CanMoveAxis", "Get - " + axis);
+            switch (axis)
             {
                 case TelescopeAxes.axisPrimary: return false;
                 case TelescopeAxes.axisSecondary: return false;
                 case TelescopeAxes.axisTertiary: return false;
-                default: throw new InvalidValueException("CanMoveAxis", Axis.ToString(), "0 to 2");
+                default: throw new InvalidValueException("CanMoveAxis", axis.ToString(), "0 to 2");
             }
         }
 
+        private bool _canPark;
         public bool CanPark
         {
             get
             {
-                tl.LogMessage("CanPark", "Get - " + false.ToString());
-                return false;
+                tl.LogMessage("CanPark", "Get - " + _canPark.ToString());
+                return _canPark;
             }
         }
 
+        private bool _canPulseGuide;
         public bool CanPulseGuide
         {
             get
             {
-                tl.LogMessage("CanPulseGuide", "Get - " + false.ToString());
-                return false;
+                tl.LogMessage("CanPulseGuide", "Get - " + _canPulseGuide.ToString());
+                return _canPulseGuide;
             }
         }
 
+        private bool _canSetDeclinationRate;
         public bool CanSetDeclinationRate
         {
             get
             {
-                tl.LogMessage("CanSetDeclinationRate", "Get - " + false.ToString());
-                return false;
+                tl.LogMessage("CanSetDeclinationRate", "Get - " + _canSetDeclinationRate.ToString());
+                return _canSetDeclinationRate;
             }
         }
 
+        private bool _canSetGuideRates;
         public bool CanSetGuideRates
         {
             get
             {
-                tl.LogMessage("CanSetGuideRates", "Get - " + false.ToString());
-                return false;
+                tl.LogMessage("CanSetGuideRates", "Get - " + _canSetGuideRates.ToString());
+                return _canSetGuideRates;
             }
         }
 
+        private bool _canSetPark;
         public bool CanSetPark
         {
             get
             {
-                tl.LogMessage("CanSetPark", "Get - " + false.ToString());
-                return false;
+                tl.LogMessage("CanSetPark", "Get - " + _canSetPark.ToString());
+                return _canSetPark;
             }
         }
 
+        private bool _canSetPierSide;
         public bool CanSetPierSide
         {
             get
             {
-                tl.LogMessage("CanSetPierSide", "Get - " + false.ToString());
-                return false;
+                tl.LogMessage("CanSetPierSide", "Get - " + _canSetPierSide.ToString());
+                return _canSetPierSide;
             }
         }
 
+        private bool _canSetRightAscensionRate;
         public bool CanSetRightAscensionRate
         {
             get
             {
-                tl.LogMessage("CanSetRightAscensionRate", "Get - " + false.ToString());
-                return false;
+                tl.LogMessage("CanSetRightAscensionRate", "Get - " + _canSetRightAscensionRate.ToString());
+                return _canSetRightAscensionRate;
             }
         }
 
+        private bool _canSetTracking;
         public bool CanSetTracking
         {
             get
             {
-                tl.LogMessage("CanSetTracking", "Get - " + false.ToString());
-                return false;
+                tl.LogMessage("CanSetTracking", "Get - " + _canSetTracking.ToString());
+                return _canSetTracking;
             }
         }
 
+        private bool _canSlew;
         public bool CanSlew
         {
             get
             {
-                tl.LogMessage("CanSlew", "Get - " + false.ToString());
-                return false;
+                tl.LogMessage("CanSlew", "Get - " + _canSlew.ToString());
+                return _canSlew;
             }
         }
 
+        private bool _canSlewAltAz;
         public bool CanSlewAltAz
         {
             get
             {
-                tl.LogMessage("CanSlewAltAz", "Get - " + false.ToString());
-                return false;
+                tl.LogMessage("CanSlewAltAz", "Get - " + _canSlewAltAz.ToString());
+                return _canSlewAltAz;
             }
         }
 
+        private bool _canSlewAltAzAsync;
         public bool CanSlewAltAzAsync
         {
             get
             {
-                tl.LogMessage("CanSlewAltAzAsync", "Get - " + false.ToString());
-                return false;
+                tl.LogMessage("CanSlewAltAzAsync", "Get - " + _canSlewAltAzAsync.ToString());
+                return _canSlewAltAzAsync;
             }
         }
 
+        private bool _canSlewAsync = true;
         public bool CanSlewAsync
         {
             get
             {
-                tl.LogMessage("CanSlewAsync", "Get - " + false.ToString());
-                return false;
+                tl.LogMessage("CanSlewAsync", "Get - " + _canSlewAsync.ToString());
+                return _canSlewAsync;
             }
         }
 
+        private bool _canSync;
         public bool CanSync
         {
             get
             {
-                tl.LogMessage("CanSync", "Get - " + false.ToString());
-                return false;
+                tl.LogMessage("CanSync", "Get - " + _canSync.ToString());
+                return _canSync;
             }
         }
 
+        private bool _canSyncAltAz;
         public bool CanSyncAltAz
         {
             get
             {
-                tl.LogMessage("CanSyncAltAz", "Get - " + false.ToString());
-                return false;
+                tl.LogMessage("CanSyncAltAz", "Get - " + _canSyncAltAz.ToString());
+                return _canSyncAltAz;
             }
         }
 
+        private bool _canUnpark;
         public bool CanUnpark
         {
             get
             {
-                tl.LogMessage("CanUnpark", "Get - " + false.ToString());
-                return false;
+                tl.LogMessage("CanUnpark", "Get - " + _canUnpark.ToString());
+                return _canUnpark;
             }
         }
 
+        private double _declination;
         public double Declination
         {
             get
             {
-                double declination = 0.0;
-                tl.LogMessage("Declination", "Get - " + utilities.DegreesToDMS(declination, ":", ":"));
-                return declination;
+                tl.LogMessage("Declination", "Get - " + utilities.DegreesToDMS(_declination, ":", ":"));
+                return _declination;
             }
         }
 
+        private double _declinationRate;
         public double DeclinationRate
         {
             get
             {
-                double declination = 0.0;
-                tl.LogMessage("DeclinationRate", "Get - " + declination.ToString());
-                return declination;
+                tl.LogMessage("DeclinationRate", "Get - " + _declinationRate.ToString());
+                return _declinationRate;
             }
             set
             {
                 tl.LogMessage("DeclinationRate Set", "Not implemented");
-                // throw new ASCOM.PropertyNotImplementedException("DeclinationRate", true);
+                _declinationRate = value;
             }
         }
 
+        private PierSide _destinationSideOfPier;
         public PierSide DestinationSideOfPier(double RightAscension, double Declination)
         {
             tl.LogMessage("DestinationSideOfPier Get", "Not implemented");
-            // throw new ASCOM.PropertyNotImplementedException("DestinationSideOfPier", false);
+            return _destinationSideOfPier;
         }
 
+        private bool _doesRefraction;
         public bool DoesRefraction
         {
             get
             {
                 tl.LogMessage("DoesRefraction Get", "Not implemented");
-                // throw new ASCOM.PropertyNotImplementedException("DoesRefraction", false);
+                return _doesRefraction;
             }
             set
             {
                 tl.LogMessage("DoesRefraction Set", "Not implemented");
-                // throw new ASCOM.PropertyNotImplementedException("DoesRefraction", true);
+                _doesRefraction = value;
             }
         }
 
+        private EquatorialCoordinateType _equatorialSystem = EquatorialCoordinateType.equLocalTopocentric;
         public EquatorialCoordinateType EquatorialSystem
         {
             get
             {
-                EquatorialCoordinateType equatorialSystem = EquatorialCoordinateType.equLocalTopocentric;
-                tl.LogMessage("DeclinationRate", "Get - " + equatorialSystem.ToString());
-                return equatorialSystem;
+                tl.LogMessage("DeclinationRate", "Get - " + _equatorialSystem.ToString());
+                return _equatorialSystem;
             }
         }
 
         public void FindHome()
         {
             tl.LogMessage("FindHome", "Not implemented");
-            throw new ASCOM.MethodNotImplementedException("FindHome");
         }
 
+        private double _focalLength;
         public double FocalLength
         {
             get
             {
                 tl.LogMessage("FocalLength Get", "Not implemented");
-                // throw new ASCOM.PropertyNotImplementedException("FocalLength", false);
+                return _focalLength;
             }
         }
 
+        private double _guideRateDeclination;
         public double GuideRateDeclination
         {
             get
             {
                 tl.LogMessage("GuideRateDeclination Get", "Not implemented");
-                // throw new ASCOM.PropertyNotImplementedException("GuideRateDeclination", false);
+                return _guideRateDeclination;
             }
             set
             {
                 tl.LogMessage("GuideRateDeclination Set", "Not implemented");
-                // throw new ASCOM.PropertyNotImplementedException("GuideRateDeclination", true);
+                _guideRateDeclination = value;
             }
         }
 
+        private double _guideRateRightAscension;
         public double GuideRateRightAscension
         {
             get
             {
                 tl.LogMessage("GuideRateRightAscension Get", "Not implemented");
-                // throw new ASCOM.PropertyNotImplementedException("GuideRateRightAscension", false);
+                return _guideRateRightAscension;
             }
             set
             {
                 tl.LogMessage("GuideRateRightAscension Set", "Not implemented");
-                // throw new ASCOM.PropertyNotImplementedException("GuideRateRightAscension", true);
+                _guideRateRightAscension = value;
             }
         }
 
+        private bool _isPulseGuiding;
         public bool IsPulseGuiding
         {
             get
             {
                 tl.LogMessage("IsPulseGuiding Get", "Not implemented");
-                // throw new ASCOM.PropertyNotImplementedException("IsPulseGuiding", false);
+                return _isPulseGuiding;
             }
         }
 
         public void MoveAxis(TelescopeAxes Axis, double Rate)
         {
             tl.LogMessage("MoveAxis", "Not implemented");
-            throw new ASCOM.MethodNotImplementedException("MoveAxis");
         }
 
         public void Park()
         {
             tl.LogMessage("Park", "Not implemented");
-            throw new ASCOM.MethodNotImplementedException("Park");
         }
 
         public void PulseGuide(GuideDirections Direction, int Duration)
         {
             tl.LogMessage("PulseGuide", "Not implemented");
-            throw new ASCOM.MethodNotImplementedException("PulseGuide");
         }
 
+
+        private double _rightAscension;
         public double RightAscension
         {
             get
             {
-                double rightAscension = 0.0;
-                tl.LogMessage("RightAscension", "Get - " + utilities.HoursToHMS(rightAscension));
-                return rightAscension;
+                tl.LogMessage("RightAscension", "Get - " + utilities.HoursToHMS(_rightAscension));
+                return _rightAscension;
             }
         }
 
+        private double _rightAscensionRate;
         public double RightAscensionRate
         {
             get
             {
-                double rightAscensionRate = 0.0;
-                tl.LogMessage("RightAscensionRate", "Get - " + rightAscensionRate.ToString());
-                return rightAscensionRate;
+                tl.LogMessage("RightAscensionRate", "Get - " + _rightAscensionRate);
+                return _rightAscensionRate;
             }
             set
             {
@@ -677,20 +703,20 @@ namespace ASCOM.AscomRest
         public void SetPark()
         {
             tl.LogMessage("SetPark", "Not implemented");
-            throw new ASCOM.MethodNotImplementedException("SetPark");
         }
 
+        private PierSide _pierSide;
         public PierSide SideOfPier
         {
             get
             {
                 tl.LogMessage("SideOfPier Get", "Not implemented");
-                // throw new ASCOM.PropertyNotImplementedException("SideOfPier", false);
+                return _pierSide;
             }
             set
             {
                 tl.LogMessage("SideOfPier Set", "Not implemented");
-                // throw new ASCOM.PropertyNotImplementedException("SideOfPier", true);
+                _pierSide = value;
             }
         }
 
@@ -720,179 +746,179 @@ namespace ASCOM.AscomRest
             }
         }
 
+        private double _siteElevation;
         public double SiteElevation
         {
             get
             {
                 tl.LogMessage("SiteElevation Get", "Not implemented");
-                // throw new ASCOM.PropertyNotImplementedException("SiteElevation", false);
+                return _siteElevation;
             }
             set
             {
                 tl.LogMessage("SiteElevation Set", "Not implemented");
-                // throw new ASCOM.PropertyNotImplementedException("SiteElevation", true);
+                _siteElevation = value;
             }
         }
 
+        private double _siteLatitude;
         public double SiteLatitude
         {
             get
             {
                 tl.LogMessage("SiteLatitude Get", "Not implemented");
-                // throw new ASCOM.PropertyNotImplementedException("SiteLatitude", false);
+                return _siteLatitude;
             }
             set
             {
                 tl.LogMessage("SiteLatitude Set", "Not implemented");
-                // throw new ASCOM.PropertyNotImplementedException("SiteLatitude", true);
+                _siteLatitude = value;
             }
         }
 
+        private double _siteLongitude;
         public double SiteLongitude
         {
             get
             {
                 tl.LogMessage("SiteLongitude Get", "Not implemented");
-                // throw new ASCOM.PropertyNotImplementedException("SiteLongitude", false);
+                return _siteLongitude;
             }
             set
             {
                 tl.LogMessage("SiteLongitude Set", "Not implemented");
-                // throw new ASCOM.PropertyNotImplementedException("SiteLongitude", true);
+                _siteLongitude = value;
             }
         }
 
+        private short _slewSettleTime;
         public short SlewSettleTime
         {
             get
             {
                 tl.LogMessage("SlewSettleTime Get", "Not implemented");
-                // throw new ASCOM.PropertyNotImplementedException("SlewSettleTime", false);
+                return _slewSettleTime;
             }
             set
             {
                 tl.LogMessage("SlewSettleTime Set", "Not implemented");
-                // throw new ASCOM.PropertyNotImplementedException("SlewSettleTime", true);
+                _slewSettleTime = value;
             }
         }
 
         public void SlewToAltAz(double Azimuth, double Altitude)
         {
             tl.LogMessage("SlewToAltAz", "Not implemented");
-            throw new ASCOM.MethodNotImplementedException("SlewToAltAz");
         }
 
         public void SlewToAltAzAsync(double Azimuth, double Altitude)
         {
             tl.LogMessage("SlewToAltAzAsync", "Not implemented");
-            throw new ASCOM.MethodNotImplementedException("SlewToAltAzAsync");
         }
 
         public void SlewToCoordinates(double RightAscension, double Declination)
         {
             tl.LogMessage("SlewToCoordinates", "Not implemented");
-            throw new ASCOM.MethodNotImplementedException("SlewToCoordinates");
         }
 
+        // used
         public void SlewToCoordinatesAsync(double RightAscension, double Declination)
         {
             tl.LogMessage("SlewToCoordinatesAsync", "Not implemented");
-            throw new ASCOM.MethodNotImplementedException("SlewToCoordinatesAsync");
         }
 
         public void SlewToTarget()
         {
             tl.LogMessage("SlewToTarget", "Not implemented");
-            throw new ASCOM.MethodNotImplementedException("SlewToTarget");
         }
 
         public void SlewToTargetAsync()
         {
             tl.LogMessage("SlewToTargetAsync", "Not implemented");
-            throw new ASCOM.MethodNotImplementedException("SlewToTargetAsync");
         }
 
+        private bool _slewing;
         public bool Slewing
         {
             get
             {
                 tl.LogMessage("Slewing Get", "Not implemented");
-                // throw new ASCOM.PropertyNotImplementedException("Slewing", false);
+                return _slewing;
             }
         }
 
         public void SyncToAltAz(double Azimuth, double Altitude)
         {
             tl.LogMessage("SyncToAltAz", "Not implemented");
-            throw new ASCOM.MethodNotImplementedException("SyncToAltAz");
         }
 
-        public void SyncToCoordinates(double RightAscension, double Declination)
+        public void SyncToCoordinates(double rightAscension, double Declination)
         {
             tl.LogMessage("SyncToCoordinates", "Not implemented");
-            throw new ASCOM.MethodNotImplementedException("SyncToCoordinates");
         }
 
         public void SyncToTarget()
         {
             tl.LogMessage("SyncToTarget", "Not implemented");
-            throw new ASCOM.MethodNotImplementedException("SyncToTarget");
         }
 
+        private double _targetDeclination;
         public double TargetDeclination
         {
             get
             {
                 tl.LogMessage("TargetDeclination Get", "Not implemented");
-                // throw new ASCOM.PropertyNotImplementedException("TargetDeclination", false);
+                return _targetDeclination;
             }
             set
             {
                 tl.LogMessage("TargetDeclination Set", "Not implemented");
-                // throw new ASCOM.PropertyNotImplementedException("TargetDeclination", true);
+                _targetDeclination = value;
             }
         }
 
+        private double _targetRightAscension;
         public double TargetRightAscension
         {
             get
             {
                 tl.LogMessage("TargetRightAscension Get", "Not implemented");
-                // throw new ASCOM.PropertyNotImplementedException("TargetRightAscension", false);
+                return _targetRightAscension;
             }
             set
             {
                 tl.LogMessage("TargetRightAscension Set", "Not implemented");
-                // throw new ASCOM.PropertyNotImplementedException("TargetRightAscension", true);
+                _targetRightAscension = value;
             }
         }
 
+        private bool _tracking = true;
         public bool Tracking
         {
             get
             {
-                bool tracking = true;
-                tl.LogMessage("Tracking", "Get - " + tracking.ToString());
-                return tracking;
+                tl.LogMessage("Tracking", "Get - " + _tracking.ToString());
+                return _tracking;
             }
             set
             {
                 tl.LogMessage("Tracking Set", "Not implemented");
-                // throw new ASCOM.PropertyNotImplementedException("Tracking", true);
+                _tracking = value;
             }
         }
 
+        private DriveRates _trackingRate;
         public DriveRates TrackingRate
         {
             get
             {
                 tl.LogMessage("TrackingRate Get", "Not implemented");
-                // throw new ASCOM.PropertyNotImplementedException("TrackingRate", false);
+                return _trackingRate;
             }
             set
             {
                 tl.LogMessage("TrackingRate Set", "Not implemented");
-                // throw new ASCOM.PropertyNotImplementedException("TrackingRate", true);
+                _trackingRate = value;
             }
         }
 
@@ -921,14 +947,12 @@ namespace ASCOM.AscomRest
             set
             {
                 tl.LogMessage("UTCDate Set", "Not implemented");
-                // throw new ASCOM.PropertyNotImplementedException("UTCDate", true);
             }
         }
 
         public void Unpark()
         {
             tl.LogMessage("Unpark", "Not implemented");
-            throw new ASCOM.MethodNotImplementedException("Unpark");
         }
 
         #endregion
